@@ -1,3 +1,5 @@
-FROM skalaiselvam5/apache
-RUN rm -f /var/www/html/index.html
-ADD ./index.html /var/www/html/
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install apache2 -y
+ADD . /var/www/html/
+ENTRYPOINT apachectl -D FOREGROUND
